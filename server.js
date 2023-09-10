@@ -22,3 +22,28 @@ app.get('/quem-somos', (req, res) => {
     const quemSomosPath = path.join(__dirname, 'pages', 'quem-somos.html')
     res.sendFile(quemSomosPath)
 })
+
+app.get('/aduaneiro', (req, res) => {
+    const aduaneiroPath = path.join(__dirname, 'pages', 'aduaneiro.html')
+    res.sendFile(aduaneiroPath)
+})
+
+app.get('/civil', (req, res) => {
+    const civilPath = path.join(__dirname, 'pages', 'civil.html')
+    res.sendFile(civilPath)
+})
+
+app.get('/trabalhista', (req, res) => {
+    const trabalhistaPath = path.join(__dirname, 'pages', 'trabalhista.html')
+    res.sendFile(trabalhistaPath)
+})
+
+app.get('/artigos', (req, res) => {
+    const artigosPath = path.join(__dirname, 'pages', 'artigos.html')
+    res.sendFile(artigosPath)
+})
+
+app.get('/contato', (req, res) => {
+    const contatoPath = path.join(__dirname, 'pages', 'contato.html')
+    res.sendFile(contatoPath)
+})
