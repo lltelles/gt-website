@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&family=Raleway:wght@100;200;300;400;500;600&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -6,4 +8,8 @@
 
 .carousel-inner {
   height: 92vh;
+}
+
+.navbar {
+  font-family: "Raleway", sans-serif;
 }
