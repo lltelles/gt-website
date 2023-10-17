@@ -30,7 +30,6 @@
 
 .navbar {
   z-index: 1;
-  background-color: #d3d3d375;
   font-family: "Raleway", sans-serif;
 }
 
@@ -79,4 +78,26 @@
 .two-columns {
   column-count: 2; /* Set the number of columns */
   column-gap: 20px; /* Set the gap between columns (adjust as needed) */
+}
+
+.links-container {
+  display: flex;
+  gap: 5rem;
+}
+
+.links-container li a {
+  text-decoration: none;
+  color: #a0a0a0;
+}
+
+.links-container li a:hover {
+  color: #fff;
+}
+
+.footer-contact address {
+  color: #a0a0a0;
+}
+
+.footer {
+  margin-top: 3rem;
 }

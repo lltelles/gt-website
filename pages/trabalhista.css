@@ -3,3 +3,25 @@
 .navbar {
   font-family: "Raleway", sans-serif;
 }
+
+.links-container {
+  display: flex;
+  gap: 5rem;
+}
+
+.links-container li a {
+  text-decoration: none;
+  color: #a0a0a0;
+}
+
+.links-container li a:hover {
+  color: #fff;
+}
+
+.footer-contact address {
+  color: #a0a0a0;
+}
+
+.footer {
+  margin-top: 3rem;
+}

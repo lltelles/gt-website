@@ -6,8 +6,59 @@
 
 .card {
   border: none;
+  max-width: 570px;
 }
 
 .card-body {
   border-radius: 10px;
+  background-color: #f3f3f3;
+}
+
+.section2 {
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+.section1 {
+  display: flex;
+  font-family: "Raleway", sans-serif;
+  text-align: justify;
+  margin: 2rem;
+  gap: 3rem;
+}
+
+.section1 img {
+  max-width: 680px;
+  height: 100vh;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.links-container {
+  display: flex;
+  gap: 5rem;
+}
+
+.links-container li a {
+  text-decoration: none;
+  color: #a0a0a0;
+}
+
+.links-container li a:hover {
+  color: #fff;
+}
+
+.footer-contact address {
+  color: #a0a0a0;
+}
+
+.footer {
+  margin-top: 3rem;
 }
