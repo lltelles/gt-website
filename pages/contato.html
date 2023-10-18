@@ -94,6 +94,51 @@
     <div class="container">
       <h1>Contact Page</h1>
     </div>
+
+    <div class="container">
+      <div class="card">
+        <div class="card-body shadow">
+          <div class="contact-icons">
+            <img src="images/phone-icon.png" alt="phone-icon" />
+            <h3>TELEFONE</h3>
+            <h6>xxxx-xxxx</h6>
+            <img src="images/email-icon.png" alt="email-icon" />
+            <h3>EMAIL</h3>
+            <h6>contato@gt.adv.br</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body shadow">
+          <div class="contact-form">
+            <form action="submit_form.php" method="post">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required />
+
+              <label for="phone">Phone:</label>
+              <input type="tel" id="phone" name="phone" required />
+
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+
+              <label for="message">Message:</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+              ></textarea>
+
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER STARTS --------------------------------------------------- -->
+
     <footer class="footer bg-dark text-light">
       <div class="container">
         <div class="row footer">

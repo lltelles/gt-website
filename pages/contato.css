@@ -4,6 +4,50 @@
   font-family: "Raleway", sans-serif;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+}
+.card {
+  border: none;
+  width: 500px;
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.card-body {
+  border-radius: 10px;
+  background-color: #f3f3f3;
+  display: flex;
+}
+
+.contact-icons {
+  max-width: 300px;
+}
+
 .links-container {
   display: flex;
   gap: 5rem;
