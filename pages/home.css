@@ -7,7 +7,7 @@
 }
 
 .carousel-inner {
-  height: 92vh;
+  height: 92.2vh;
 }
 
 .navbar {
@@ -34,4 +34,34 @@
 
 .footer {
   margin-top: 3rem;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .carousel-inner {
+    height: 100vh;
+  }
+
+  .navbar {
+    font-size: 16px; /* Adjust the font size as needed for mobile */
+  }
+
+  .links-container {
+    flex-direction: column;
+    gap: 1rem; /* Adjust the gap as needed for mobile */
+  }
+
+  .links-container li {
+    text-align: center;
+  }
+
+  #carousel-pic {
+    height: 100vh;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .container {
+    padding: 0;
+  }
 }

@@ -42,17 +42,31 @@
   font-family: "Raleway", sans-serif;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
   text-align: center;
   position: relative;
   bottom: 10rem;
+  height: 600px;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+
+.social-links img {
+  width: 50px; /* Set the desired width for the icons */
+  height: 50px; /* Set the desired height for the icons */
+  border: 1px solid #ccc; /* Add a border to the icons */
+  border-radius: 50%; /* Make the icons circular */
+  transition: transform 0.2s; /* Add a hover effect for scaling */
+}
+
+.social-links img:hover {
+  transform: scale(1.1); /* Scale the icons slightly on hover */
 }
 
 .links-container {
