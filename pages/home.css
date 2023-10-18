@@ -6,12 +6,42 @@
   box-sizing: border-box;
 }
 
+.navbar {
+  font-family: "Raleway", sans-serif;
+}
+
 .carousel-inner {
   height: 92.2vh;
 }
 
-.navbar {
+.carousel-title {
   font-family: "Raleway", sans-serif;
+  position: absolute;
+  top: 25%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  text-align: start;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.carousel-title h1 {
+  font-size: 5rem;
+  font-weight: 300;
+}
+
+.carousel-title p {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  font-weight: 300;
+}
+
+.carousel-title a {
+  text-decoration: underline;
+  color: #fff;
+  font-size: 1.2rem;
 }
 
 .links-container {
@@ -38,6 +68,9 @@
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
+  body {
+    overflow: hidden;
+  }
   .carousel-inner {
     height: 100vh;
   }
@@ -63,5 +96,11 @@
 
   .container {
     padding: 0;
+  }
+
+  .carousel-title {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
