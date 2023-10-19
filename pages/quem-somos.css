@@ -38,6 +38,11 @@
   bottom: 3rem;
 }
 
+.imagem-quem-somos img {
+  border-radius: 10px;
+  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.3);
+}
+
 .section2 {
   font-family: "Raleway", sans-serif;
   display: flex;
