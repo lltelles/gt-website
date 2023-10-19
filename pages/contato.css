@@ -16,17 +16,6 @@
   border: none;
 }
 
-.container.container-1 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
 input,
 textarea {
   width: 100%;
@@ -63,15 +52,22 @@ input[type="submit"]:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* text-align: center; */
 }
 
-.card-body h3,
-h6 {
-  text-align: start;
+label {
+  display: block;
+  margin-bottom: 5px;
 }
 
 .contact-icons {
   max-width: 300px;
+  text-align: center;
+}
+
+.contact-icons a {
+  /* text-decoration: none; */
+  color: #111;
 }
 
 .links-container {

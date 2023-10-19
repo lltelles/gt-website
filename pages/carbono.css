@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&family=Raleway:wght@100;200;300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  font-family: "Raleway", sans-serif;
+}
+
+.links-container {
+  display: flex;
+  gap: 5rem;
+}
+
+.links-container li a {
+  text-decoration: none;
+  color: #a0a0a0;
+}
+
+.links-container li a:hover {
+  color: #fff;
+}
+
+.footer-contact address {
+  color: #a0a0a0;
+}
+
+.footer {
+  margin-top: 3rem;
+}
