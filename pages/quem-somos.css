@@ -104,6 +104,15 @@
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
   .section1 {
     flex-direction: column;
     text-align: justify;
@@ -118,13 +127,33 @@
     top: 1px;
   }
 
+  .quem-somos-texto p {
+    text-align: start;
+  }
+
   .section1,
   .section2 {
     position: static;
     bottom: 0;
   }
 
+  .section2 p,
+  .section2 li {
+    font-size: 0.75rem;
+    text-align: justify;
+  }
+
   #wave-svg {
     display: none;
+  }
+
+  .footer {
+    font-size: 0.75rem;
+  }
+
+  .links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
   }
 }

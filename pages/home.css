@@ -13,6 +13,7 @@ body {
 .navbar {
   font-family: "Raleway", sans-serif;
   background-color: rgba(255, 255, 255, 0.5);
+  padding: 15px;
 }
 
 .carousel-inner {
@@ -33,11 +34,6 @@ body {
 .building-banner {
   font-family: "Raleway", sans-serif;
   color: #fff;
-}
-
-.building-banner h1 {
-  font-size: 4rem;
-  font-weight: 300;
 }
 
 .building-banner p {
@@ -68,16 +64,6 @@ body {
   bottom: 4rem;
 }
 
-.links-container {
-  display: flex;
-  gap: 5rem;
-}
-
-.links-container li a {
-  text-decoration: none;
-  color: #a0a0a0;
-}
-
 .links-container li a:hover {
   color: #fff;
 }
@@ -95,6 +81,7 @@ body {
   body {
     overflow: hidden;
   }
+
   .carousel-inner {
     height: 100vh;
   }
@@ -107,12 +94,10 @@ body {
     font-size: 16px; /* Adjust the font size as needed for mobile */
   }
 
-  .links-container {
-    flex-direction: column;
-    gap: 1rem; /* Adjust the gap as needed for mobile */
-  }
-
-  .links-container li {
+  .building-banner p {
+    font-size: 1rem;
+    margin: 10px 0;
+    font-weight: 300;
     text-align: center;
   }
 
@@ -127,10 +112,34 @@ body {
   }
 
   .carousel-title {
-    top: 40%;
+    top: 25%;
     left: 50%;
+    max-width: 300px;
     transform: translate(-50%, -50%);
     padding: 10px;
     font-size: 2rem;
+  }
+
+  .carbon-banner h1 {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  .carbon-banner p {
+    font-size: 0.75rem;
+  }
+
+  .carbon-banner a {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+
+  .carousel-inner {
+    height: 100vh;
   }
 }

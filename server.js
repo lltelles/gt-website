@@ -43,9 +43,9 @@ app.get('/carbono', (req, res) => {
     res.sendFile(carbonoPath)
 })
 
-app.get('/artigos', (req, res) => {
-    const artigosPath = path.join(__dirname, 'pages', 'artigos.html')
-    res.sendFile(artigosPath)
+app.get('/blog', (req, res) => {
+    const blogPath = path.join(__dirname, 'pages', 'blog.html')
+    res.sendFile(blogPath)
 })
 
 app.get('/contato', (req, res) => {

@@ -31,3 +31,24 @@
 .footer {
   margin-top: 3rem;
 }
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .footer {
+    font-size: 0.75rem;
+  }
+
+  .links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+}
