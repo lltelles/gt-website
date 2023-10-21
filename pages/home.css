@@ -6,8 +6,13 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow: hidden;
+}
+
 .navbar {
   font-family: "Raleway", sans-serif;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .carousel-inner {
@@ -15,33 +20,52 @@
 }
 
 .carousel-title {
-  font-family: "Raleway", sans-serif;
   position: absolute;
-  top: 25%;
-  left: 40%;
+  top: 40%;
+  left: 50%;
+  width: 800px;
   transform: translate(-50%, -50%);
-  text-align: start;
   background: rgba(0, 0, 0, 0.5);
-  color: #fff;
   padding: 10px;
   border-radius: 8px;
 }
 
-.carousel-title h1 {
+.building-banner {
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+}
+
+.building-banner h1 {
   font-size: 4rem;
   font-weight: 300;
 }
 
-.carousel-title p {
-  font-size: 1.5rem;
+.building-banner p {
+  font-size: 2rem;
   margin: 10px 0;
+  font-weight: 300;
+  text-align: center;
+}
+
+.carbon-banner {
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+}
+
+.carbon-banner h1 {
+  font-size: 4rem;
   font-weight: 300;
 }
 
-.carousel-title a {
+.carbon-banner a {
   text-decoration: underline;
   color: #fff;
   font-size: 1.2rem;
+}
+
+#building-video {
+  position: relative;
+  bottom: 4rem;
 }
 
 .links-container {
@@ -75,6 +99,10 @@
     height: 100vh;
   }
 
+  .carousel-title {
+    max-width: 700px;
+  }
+
   .navbar {
     font-size: 16px; /* Adjust the font size as needed for mobile */
   }
@@ -88,7 +116,7 @@
     text-align: center;
   }
 
-  #carousel-pic {
+  #building-video {
     height: 100vh;
     object-fit: cover;
     overflow: hidden;
@@ -103,5 +131,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
+    font-size: 2rem;
   }
 }
