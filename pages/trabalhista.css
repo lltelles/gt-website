@@ -4,6 +4,89 @@
   font-family: "Raleway", sans-serif;
 }
 
+.banner-trabalhista {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  position: relative;
+}
+
+.banner-trabalhista img {
+  max-width: 100%;
+  height: auto;
+  filter: brightness(0.5);
+}
+
+.banner-trabalhista h1 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  color: white;
+  padding: 10px;
+  font-size: 5rem;
+}
+
+.section1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Raleway", sans-serif;
+  text-align: justify;
+  margin: 2rem;
+  gap: 3rem;
+}
+
+.section1 img {
+  max-width: 680px;
+  height: 100vh;
+}
+
+.trabalhista-texto p {
+  max-width: 500px;
+}
+
+.trabalhista-texto h1 {
+  position: relative;
+  bottom: 3rem;
+}
+
+.imagem-trabalhista2 img {
+  border-radius: 10px;
+  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.3);
+}
+
+.two-columns {
+  column-count: 2;
+  column-gap: 20px;
+}
+
+.two-columns li {
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  list-style-type: square;
+}
+
+.atuacao {
+  background-color: #ebebeb95;
+  border-radius: 8px;
+  font-family: "Raleway", sans-serif;
+}
+
+.atuacao h1 {
+  text-align: center;
+  font-weight: 500;
+  padding: 10px;
+}
+
 .links-container {
   display: flex;
   gap: 5rem;
@@ -34,6 +117,38 @@
   ::-webkit-scrollbar {
     width: 0;
     height: 0;
+  }
+
+  .banner-trabalhista h1 {
+    display: none;
+  }
+
+  .section1 {
+    flex-direction: column;
+    text-align: justify;
+    position: static;
+    bottom: 0;
+  }
+
+  .section1 img {
+    max-width: 100%;
+    height: auto;
+  }
+  .section1 h1 {
+    position: relative;
+    top: 1px;
+  }
+
+  .trabalhista-texto p {
+    text-align: start;
+  }
+
+  .two-columns li {
+    font-size: 14px;
+  }
+
+  .two-columns {
+    column-count: 1; /* Set the number of columns */
   }
 
   .footer {
