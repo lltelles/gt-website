@@ -31,6 +31,44 @@ body {
   border-radius: 8px;
 }
 
+.carousel-title a {
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  text-align: center;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 8px 4px;
+  width: 220px;
+  transition: all 0.5s;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  text-decoration: none;
+}
+
+.carousel-title a:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 7px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.carousel-title a:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.carousel-title a:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
 .building-banner {
   font-family: "Raleway", sans-serif;
   color: #fff;
@@ -53,11 +91,11 @@ body {
   font-weight: 300;
 }
 
-.carbon-banner a {
-  text-decoration: underline;
+/* .carbon-banner a {
+  text-decoration: none;
   color: #fff;
   font-size: 1.2rem;
-}
+} */
 
 #building-video {
   position: relative;
