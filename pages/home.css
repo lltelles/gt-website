@@ -22,7 +22,7 @@ body {
 
 .carousel-title {
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 50%;
   width: 800px;
   transform: translate(-50%, -50%);
@@ -42,7 +42,7 @@ body {
   width: 220px;
   transition: all 0.5s;
   cursor: pointer;
-  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 5px 10px -8px rgba(0, 0, 0, 0.7);
   display: inline-block;
   position: relative;
   transition: 0.5s;
@@ -122,10 +122,6 @@ body {
 
   .carousel-inner {
     height: 100vh;
-  }
-
-  .carousel-title {
-    max-width: 700px;
   }
 
   .navbar {
