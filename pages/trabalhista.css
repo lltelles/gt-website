@@ -109,6 +109,20 @@
   margin-top: 3rem;
 }
 
+.fade-in {
+  animation: fadeIn 2s ease-in-out;
+  /* opacity: 0; */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 768px) {
   body {
     overflow-x: hidden;

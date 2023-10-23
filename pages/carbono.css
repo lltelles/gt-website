@@ -10,6 +10,85 @@
   font-family: "Raleway", sans-serif;
 }
 
+.banner-carbono {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  position: relative;
+}
+
+.banner-carbono img {
+  max-width: 100%;
+  height: auto;
+  filter: brightness(0.5);
+}
+
+.banner-carbono h1 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  color: white;
+  padding: 10px;
+  font-size: 5rem;
+}
+
+.section1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Raleway", sans-serif;
+  text-align: justify;
+  margin: 2rem;
+  gap: 3rem;
+}
+
+.section1 img {
+  max-width: 680px;
+  height: 100vh;
+}
+
+.carbono-texto p {
+  max-width: 500px;
+}
+
+.carbono-texto h1 {
+  position: relative;
+  bottom: 3rem;
+}
+
+.imagem-carbono2 img {
+  border-radius: 10px;
+  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.3);
+}
+
+.perguntas {
+  background-color: #ebebeb95;
+  border-radius: 8px;
+  font-family: "Raleway", sans-serif;
+  padding: 10px;
+}
+
+.box-perguntas h4 {
+  margin-left: 1rem;
+}
+
+.two-columns {
+  column-count: 1; /* Set the number of columns */
+  column-gap: 20px; /* Set the gap between columns (adjust as needed) */
+}
+
+.two-columns span {
+  font-weight: bolder;
+}
+
 .links-container {
   display: flex;
   gap: 5rem;
@@ -32,6 +111,20 @@
   margin-top: 3rem;
 }
 
+.fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+  /* opacity: 0; */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 768px) {
   body {
     overflow-x: hidden;
@@ -40,6 +133,39 @@
   ::-webkit-scrollbar {
     width: 0;
     height: 0;
+  }
+
+  .banner-carbono h1 {
+    display: none;
+  }
+
+  .section1 {
+    flex-direction: column;
+    text-align: justify;
+    position: static;
+    bottom: 0;
+  }
+
+  .section1 img {
+    max-width: 100%;
+    height: auto;
+  }
+  .section1 h1 {
+    position: relative;
+    top: 1px;
+  }
+
+  .carbono-texto p {
+    text-align: justify;
+  }
+
+  .perguntas {
+    font-size: 0.8rem;
+  }
+
+  .box-perguntas h4 {
+    margin-left: 0;
+    font-size: 1rem;
   }
 
   .footer {

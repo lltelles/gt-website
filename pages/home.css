@@ -91,6 +91,18 @@ body {
   font-weight: 300;
 }
 
+.third-banner {
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+}
+
+.third-banner p {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  font-weight: 300;
+  text-align: center;
+}
+
 /* .carbon-banner a {
   text-decoration: none;
   color: #fff;
@@ -112,6 +124,20 @@ body {
 
 .footer {
   margin-top: 3rem;
+}
+
+.fade-in {
+  animation: fadeIn 2.5s ease-in-out;
+  /* opacity: 0; */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Mobile Styles */
@@ -152,6 +178,8 @@ body {
     transform: translate(-50%, -50%);
     padding: 10px;
     font-size: 2rem;
+    text-align: center;
+    border-radius: 0;
   }
 
   .carbon-banner h1 {
@@ -165,6 +193,13 @@ body {
 
   .carbon-banner a {
     font-size: 0.75rem;
+  }
+
+  .third-banner p {
+    font-size: 0.75rem;
+    margin: 10px 0;
+    font-weight: 300;
+    text-align: center;
   }
 }
 
