@@ -1,11 +1,43 @@
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config()
+}
+
 const express = require("express");
 const app = express();
-const path = require("path"); // Node.js built-in module for working with file paths
-// ℹ️ Sets the PORT for our app to have access to it. If no env has been set, we hard code it to 3000
+const path = require("path");
+const ejs = require("ejs");
+const bcrypt = require("bcrypt");
+const passport = require("passport");
+const flash = require('express-flash')
+const session = require('express-session')
+const methodOverride = require('method-override')
+
+
+const initalizePassport = require('./passport-config');
+initalizePassport(
+    passport, 
+    email =>  users.find(user => user.email === email),
+    id =>  users.find(user => user.id === id),
+)
+
+const users = [];
+
 const PORT = process.env.PORT || 3001;
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "pages")));
+
+app.set("view-engine", "ejs");
+app.use(express.urlencoded({ extended: false }));
+app.use(flash())
+app.use(session({
+    secret:process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(methodOverride('_method'))
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
@@ -14,41 +46,102 @@ app.listen(PORT, () => {
 // 👇 Start handling routes here
 
 app.get("/home", (req, res) => {
-    const homePath = path.join(__dirname, "pages", "home.html"); // You can send any response you like here
-    res.sendFile(homePath);
+    // Check if the user is authenticated and pass the user variable to the view
+    res.render("home.ejs", { user: req.user });
   });
 
-app.get('/quem-somos', (req, res) => {
-    const quemSomosPath = path.join(__dirname, 'pages', 'quem-somos.html')
-    res.sendFile(quemSomosPath)
+app.get("/quem-somos", (req, res) => {
+  const quemSomosPath = path.join(__dirname, "pages", "quem-somos.html");
+  res.sendFile(quemSomosPath);
+});
+
+app.get("/aduaneiro", (req, res) => {
+  const aduaneiroPath = path.join(__dirname, "pages", "aduaneiro.html");
+  res.sendFile(aduaneiroPath);
+});
+
+app.get("/civil", (req, res) => {
+  const civilPath = path.join(__dirname, "pages", "civil.html");
+  res.sendFile(civilPath);
+});
+
+app.get("/trabalhista", (req, res) => {
+  const trabalhistaPath = path.join(__dirname, "pages", "trabalhista.html");
+  res.sendFile(trabalhistaPath);
+});
+
+app.get("/carbono", (req, res) => {
+  const carbonoPath = path.join(__dirname, "pages", "carbono.html");
+  res.sendFile(carbonoPath);
+});
+
+// app.get("/blog", (req, res) => {
+//   const blogPath = path.join(__dirname, "pages", "blog.html");
+//   res.sendFile(blogPath);
+// });
+
+app.get("/blog", (req, res) => {
+    // Check if the user is authenticated and pass the user variable to the view
+    res.render("blog.ejs");
+  });
+
+app.get("/contato", (req, res) => {
+  const contatoPath = path.join(__dirname, "pages", "contato.html");
+  res.sendFile(contatoPath);
+});
+
+app.get('/profile', (req, res) => {
+    res.render('index.ejs', { name: req.user.name})
 })
 
-app.get('/aduaneiro', (req, res) => {
-    const aduaneiroPath = path.join(__dirname, 'pages', 'aduaneiro.html')
-    res.sendFile(aduaneiroPath)
+app.get("/login", checkNotAuthenticated, (req, res) => {
+  res.render("login.ejs");
+});
+
+app.post("/login", checkNotAuthenticated, passport.authenticate('local', {
+    successRedirect: '/home',
+    failureRedirect: '/login',
+    failureFlash: true
+}));
+
+app.get("/register", checkNotAuthenticated, (req, res) => {
+  res.render("register.ejs");
+});
+
+app.post("/register", checkNotAuthenticated, async (req, res) => {
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    users.push({
+      id: Date.now().toString(),
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedPassword,
+    });
+    res.redirect("/login");
+  } catch {
+    res.redirect("/register");
+  }
+});
+
+app.delete('/logout', (req, res) => {
+    req.logout((err) => {
+        if(err) {
+            return res.status(500).send('Error during logout')
+        }
+        res.redirect('/home')
+    })
 })
 
-app.get('/civil', (req, res) => {
-    const civilPath = path.join(__dirname, 'pages', 'civil.html')
-    res.sendFile(civilPath)
-})
+// function checkAuthenticated(req, res, next) {
+//     if(req.isAuthenticated()) {
+//         return next()
+//     }
+//     res.redirect('/login')
+// }
 
-app.get('/trabalhista', (req, res) => {
-    const trabalhistaPath = path.join(__dirname, 'pages', 'trabalhista.html')
-    res.sendFile(trabalhistaPath)
-})
-
-app.get('/carbono', (req, res) => {
-    const carbonoPath = path.join(__dirname, 'pages', 'carbono.html')
-    res.sendFile(carbonoPath)
-})
-
-app.get('/blog', (req, res) => {
-    const blogPath = path.join(__dirname, 'pages', 'blog.html')
-    res.sendFile(blogPath)
-})
-
-app.get('/contato', (req, res) => {
-    const contatoPath = path.join(__dirname, 'pages', 'contato.html')
-    res.sendFile(contatoPath)
-})
+function checkNotAuthenticated(req, res, next) {
+    if(req.isAuthenticated()) {
+    return res.redirect('/profile')
+    }
+    next()
+}
