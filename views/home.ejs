@@ -88,11 +88,13 @@
               >
             </li>
           </ul>
-          <% if (user) { %>
-          <a href="profile">PROFILE</a>
-          <% } else { %>
-          <a href="login">LOGIN</a>
-          <% } %>
+          <div class="login">
+            <% if (user) { %>
+            <a href="profile">PROFILE</a>
+            <% } else { %>
+            <a href="login">LOGIN</a>
+            <% } %>
+          </div>
 
           <!-- <form class="d-flex" role="search">
             <input
@@ -135,6 +137,25 @@
             </p>
           </div>
         </div>
+
+        <div class="carousel-item">
+          <video
+            src="videos/third-slide.mp4"
+            class="d-block w-100"
+            alt="Video"
+            autoplay
+            loop
+            muted
+            id="building-video"
+          ></video>
+          <div class="carousel-title third-banner fade-in">
+            <p>
+              As relações entre pessoas, empresas e o Estado, estão cada vez
+              mais interconectadas, exigindo do profissional um conhecimento
+              amplo e que oportunize minimizar riscos e ampliar resultados.
+            </p>
+          </div>
+        </div>
         <div class="carousel-item">
           <video
             src="videos/carbon.mp4"
@@ -154,24 +175,6 @@
               os novos desafios.
             </p>
             <a href="carbono">Saiba mais </a>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <video
-            src="videos/third-slide.mp4"
-            class="d-block w-100"
-            alt="Video"
-            autoplay
-            loop
-            muted
-            id="building-video"
-          ></video>
-          <div class="carousel-title third-banner fade-in">
-            <p>
-              As relações entre pessoas, empresas e o Estado, estão cada vez
-              mais interconectadas, exigindo do profissional um conhecimento
-              amplo e que oportunize minimizar riscos e ampliar resultados.
-            </p>
           </div>
         </div>
       </div>
