@@ -15,7 +15,10 @@
   },
   "name": "website",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "server.js",
+  "engines": {
+    "node": "14.x"
+  },
   "devDependencies": {
     "dotenv": "^16.3.1",
     "nodemon": "^3.0.1"
