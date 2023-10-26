@@ -45,7 +45,7 @@ app.listen(PORT, () => {
 
 // 👇 Start handling routes here
 
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
     // Check if the user is authenticated and pass the user variable to the view
     res.render("home.ejs", { user: req.user });
   });
@@ -99,7 +99,7 @@ app.get("/login", checkNotAuthenticated, (req, res) => {
 });
 
 app.post("/login", checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/home',
+    successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: true
 }));
@@ -128,7 +128,7 @@ app.delete('/logout', (req, res) => {
         if(err) {
             return res.status(500).send('Error during logout')
         }
-        res.redirect('/home')
+        res.redirect('/')
     })
 })
 
