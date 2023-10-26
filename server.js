@@ -25,7 +25,7 @@ const users = [];
 const PORT = process.env.PORT || 3001;
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static(path.join(__dirname, "pages")));
+app.use(express.static(path.join(__dirname, "styles")));
 app.use(express.static(path.join(__dirname, "views")));
 
 app.set("view-engine", "ejs");
@@ -52,34 +52,35 @@ app.get("/", (req, res) => {
   });
 
 app.get("/quem-somos", (req, res) => {
-  const quemSomosPath = path.join(__dirname, "pages", "quem-somos.html");
-  res.sendFile(quemSomosPath);
+  // const quemSomosPath = path.join(__dirname, "pages", "quem-somos.html");
+  // res.sendFile(quemSomosPath);
+  res.render("quem-somos.ejs")
 });
 
 app.get("/aduaneiro", (req, res) => {
-  const aduaneiroPath = path.join(__dirname, "pages", "aduaneiro.html");
-  res.sendFile(aduaneiroPath);
+  // const aduaneiroPath = path.join(__dirname, "pages", "aduaneiro.html");
+  // res.sendFile(aduaneiroPath);
+  res.render("aduaneiro.ejs")
+
 });
 
 app.get("/civil", (req, res) => {
-  const civilPath = path.join(__dirname, "pages", "civil.html");
-  res.sendFile(civilPath);
+  // const civilPath = path.join(__dirname, "pages", "civil.html");
+  // res.sendFile(civilPath);
+  res.render("civil.ejs")
 });
 
 app.get("/trabalhista", (req, res) => {
-  const trabalhistaPath = path.join(__dirname, "pages", "trabalhista.html");
-  res.sendFile(trabalhistaPath);
+  // const trabalhistaPath = path.join(__dirname, "pages", "trabalhista.html");
+  // res.sendFile(trabalhistaPath);
+  res.render("trabalhista.ejs")
 });
 
 app.get("/carbono", (req, res) => {
-  const carbonoPath = path.join(__dirname, "pages", "carbono.html");
-  res.sendFile(carbonoPath);
+  // const carbonoPath = path.join(__dirname, "pages", "carbono.html");
+  // res.sendFile(carbonoPath);
+  res.render("carbono.ejs")
 });
-
-// app.get("/blog", (req, res) => {
-//   const blogPath = path.join(__dirname, "pages", "blog.html");
-//   res.sendFile(blogPath);
-// });
 
 app.get("/blog", (req, res) => {
     // Check if the user is authenticated and pass the user variable to the view
@@ -87,8 +88,9 @@ app.get("/blog", (req, res) => {
   });
 
 app.get("/contato", (req, res) => {
-  const contatoPath = path.join(__dirname, "pages", "contato.html");
-  res.sendFile(contatoPath);
+  // const contatoPath = path.join(__dirname, "pages", "contato.html");
+  // res.sendFile(contatoPath);
+  res.render("contato.ejs")
 });
 
 app.get('/profile', (req, res) => {
