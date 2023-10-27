@@ -129,6 +129,7 @@
             loop
             muted
             id="building-video"
+            loading="lazy"
           ></video>
           <div class="carousel-title building-banner fade-in">
             <p>
@@ -147,6 +148,7 @@
             loop
             muted
             id="building-video"
+            loading="lazy"
           ></video>
           <div class="carousel-title third-banner fade-in">
             <p>
@@ -165,6 +167,7 @@
             loop
             muted
             id="building-video"
+            loading="lazy"
           ></video>
           <div class="carousel-title carbon-banner fade-in">
             <h1>Crédito de Carbono</h1>
@@ -206,6 +209,25 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
+    <script>
+      // Create a new video element
+      const preloadedVideo = new Video();
+
+      // Set the source of the preloaded video
+      preloadedVideo.src = "videos/buildings2.mp4";
+
+      // Use the 'preload' attribute to indicate you want to preload the video
+      preloadedVideo.preload = "auto";
+
+      // Set the 'autoplay' attribute if you want it to start playing as soon as it's loaded
+      preloadedVideo.autoplay = true;
+
+      // Hide the preloaded video element so it's not visible to users
+      preloadedVideo.style.display = "none";
+
+      // Append the preloaded video to the document body or another container
+      document.body.appendChild(preloadedVideo);
+    </script>
     <!-- <script>
       document.addEventListener("DOMContentLoaded", function () {
         const navLinks = document.querySelectorAll(".nav-link");
