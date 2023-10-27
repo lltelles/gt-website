@@ -193,7 +193,7 @@ body {
     padding: 10px;
     font-size: 2rem;
     text-align: center;
-    border-radius: 0;
+    border-radius: 8px;
   }
 
   .carbon-banner h1 {
