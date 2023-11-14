@@ -3,7 +3,8 @@ if(process.env.NODE_ENV !== 'production'){
 }
 
 const express = require("express");
-const app = express();
+const mongoose = require('mongoose')
+const articleRouter = require('./routes/articles')
 const path = require("path");
 const ejs = require("ejs");
 const bcrypt = require("bcrypt");
@@ -12,6 +13,10 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+mongoose.connect('mongodb://localhost:27017/gtblog')
 
 const initalizePassport = require('./passport-config');
 initalizePassport(
@@ -22,23 +27,26 @@ initalizePassport(
 
 const users = [];
 
-const PORT = process.env.PORT || 3001;
 
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static(path.join(__dirname, "styles")));
-app.use(express.static(path.join(__dirname, "views")));
 
-app.set("view-engine", "ejs");
+app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
-app.use(flash())
 app.use(session({
-    secret:process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
+  secret:process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
 }))
+app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
+
+
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "styles")));
+// app.use(express.static(path.join(__dirname, "views")));
+
+app.use('/articles', articleRouter)
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
@@ -82,9 +90,18 @@ app.get("/carbono", (req, res) => {
   res.render("carbono.ejs")
 });
 
-app.get("/blog", (req, res) => {
-    // Check if the user is authenticated and pass the user variable to the view
-    res.render("blog.ejs");
+app.get("/articles", (req, res) => {
+    const articles = [{
+      title: 'test article',
+      createdAt: new Date(),
+      description: 'test description'
+    },
+    {
+      title: 'test article 2',
+      createdAt: new Date(),
+      description: 'test description'
+    }]
+    res.render("articles/index.ejs", {articles: articles});
   });
 
 app.get("/contato", (req, res) => {
