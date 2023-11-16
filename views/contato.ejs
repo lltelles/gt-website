@@ -17,6 +17,7 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
+    <script src="js/contact.js"></script>
   </head>
   <body>
     <nav
@@ -134,7 +135,7 @@
       <div class="card" style="border: none">
         <div class="card-body shadow">
           <div class="contact-form">
-            <form action="submit_form.php" method="post">
+            <form id="myForm">
               <label for="name">Nome</label>
               <input type="text" id="name" name="name" required />
 
@@ -153,7 +154,7 @@
                 required
               ></textarea>
 
-              <input type="submit" value="Enviar" />
+              <input id="submitBtn" type="submit" value="Enviar" />
             </form>
           </div>
         </div>

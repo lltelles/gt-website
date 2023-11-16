@@ -5,6 +5,7 @@ if(process.env.NODE_ENV !== 'production'){
 const express = require("express");
 const mongoose = require('mongoose')
 const articleRouter = require('./routes/articles')
+const Article = require('./models/article')
 const path = require("path");
 const ejs = require("ejs");
 const bcrypt = require("bcrypt");
@@ -16,9 +17,17 @@ const methodOverride = require('method-override')
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-mongoose.connect('mongodb://localhost:27017/gtblog')
+mongoose.connect('mongodb://127.0.0.1:27017/gtblog')
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+  });
+
 
 const initalizePassport = require('./passport-config');
+const { resourceUsage } = require('process');
 initalizePassport(
     passport, 
     email =>  users.find(user => user.email === email),
@@ -90,17 +99,8 @@ app.get("/carbono", (req, res) => {
   res.render("carbono.ejs")
 });
 
-app.get("/articles", (req, res) => {
-    const articles = [{
-      title: 'test article',
-      createdAt: new Date(),
-      description: 'test description'
-    },
-    {
-      title: 'test article 2',
-      createdAt: new Date(),
-      description: 'test description'
-    }]
+app.get("/articles", async (req, res) => {
+    const articles = await Article.find().sort({createdAt: 'desc'})
     res.render("articles/index.ejs", {articles: articles});
   });
 
