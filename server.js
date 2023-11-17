@@ -17,7 +17,9 @@ const methodOverride = require('method-override')
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-mongoose.connect('mongodb://127.0.0.1:27017/gtblog')
+const dbUrl = "mongodb+srv://sellet:mBTdFzYJy5gKP3on@cluster0.nebxmyt.mongodb.net/?retryWrites=true&w=majority"
+
+mongoose.connect(dbUrl)
   .then(() => {
     console.log('Connected to MongoDB');
   })
