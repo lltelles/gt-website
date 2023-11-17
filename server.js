@@ -103,7 +103,7 @@ app.get("/carbono", (req, res) => {
 
 app.get("/articles", async (req, res) => {
     const articles = await Article.find().sort({createdAt: 'desc'})
-    res.render("articles/index.ejs", {articles: articles});
+    res.render("articles/index.ejs", {articles: articles, user: req.user});
   });
 
 app.get("/contato", (req, res) => {
