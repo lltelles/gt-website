@@ -7,10 +7,16 @@ router.get("/new", (req, res) => {
 });
 
 router.get("/:slug", async (req, res) => {
-  const article = await Article.findOne({slug: req.params.slug})
-  if(article == null) res.redirect('/articles')
-  res.render('articles/show', {article: article})
+  try {
+    const article = await Article.findOne({ slug: req.params.slug });
+    if (!article) return res.redirect('/articles');
+    res.render('articles/show', { article: article });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 });
+
 
 router.post("/", async (req, res, next) => {
  req.article = new Article()
@@ -44,7 +50,7 @@ function saveArticleAndRedirect(path) {
       res.redirect(`/articles/${article.slug}`);
     } catch (error) {
       console.error(error);
-      res.render("articles/${path}", { article: article });
+      res.render(`articles/${path}`, { article: article });
     }
   }
 }
