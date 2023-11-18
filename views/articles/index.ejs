@@ -115,9 +115,9 @@
 
     <div class="container">
       <h1 class="mb-4">Blog Articles</h1>
+      <% if (user) { %>
       <a href="/articles/new" class="btn btn-success">New Article</a>
-
-      <% articles.forEach(article => { %>
+      <% } %> <% articles.forEach(article => { %>
       <div class="card mt-4">
         <div class="card-body">
           <h4 class="card-title"><%= article.title %></h4>
