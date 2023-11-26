@@ -18,18 +18,142 @@
       crossorigin="anonymous"
     />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+      integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa; /* Light gray background */
+      }
+      .container {
+        margin-top: 20px;
+      }
+
+      .markdown {
+        text-align: justify;
+      }
+
+      .buttons-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .read-edit-del-btn {
+        margin-top: auto;
+      }
+
+      .share-icons {
+        display: inline;
+        font-size: 2rem;
+      }
+    </style>
   </head>
   <body>
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary shadow"
+      style="padding: 15px"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">GT Advocacia & Consultoria</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../quem-somos"
+                >Quem Somos</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Áreas de atuação
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../aduaneiro"
+                    >Direito Aduaneiro</a
+                  >
+                </li>
+                <!-- <li><hr class="dropdown-divider" /></li> -->
+                <li>
+                  <a class="dropdown-item" href="../civil">Direito Cívil</a>
+                </li>
+                <!-- <li><hr class="dropdown-divider" /></li> -->
+                <li>
+                  <a class="dropdown-item" href="../trabalhista"
+                    >Direito do Trabalho</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Consultoria
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../carbono"
+                    >Crédito de Carbono</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="articles">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../contato" aria-disabled="true"
+                >Contato</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <div class="container">
       <h1 class="mb-1"><%= article.title %></h1>
       <div class="text-muted mb-2">
         <%= article.createdAt.toLocaleDateString()%>
       </div>
-      <a href="/articles" class="btn btn-secondary">All Articles</a>
-      <!-- <a href="/articles/edit/<%= article.id%>" class="btn btn-info">Edit</a> -->
-
-      <div><%= article.markdown %></div>
+      <div class="share-icons">
+        <a
+          class="linkedin"
+          target="_blank"
+          data-article-slug="<%= article.slug %>"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a class="twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+      <div class="markdown mt-4 mb-4"><%= article.markdown %></div>
+      <div class="read-edit-del-btn mb-4">
+        <a href="/articles" class="btn btn-secondary">Voltar</a>
+      </div>
     </div>
 
     <script
@@ -37,5 +161,65 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const shareIcons = document.querySelectorAll(".share-icons .twitter");
+
+        shareIcons.forEach((icon) => {
+          const articleSlug = icon.getAttribute("data-article-slug");
+          const link = `https://www.gt.adv.br/articles/${articleSlug}`;
+          // const msg = encodeURIComponent("Hey, I found this article");
+          const title = encodeURIComponent(
+            document.querySelector("title").textContent
+          );
+          const text = "Look what I found";
+
+          icon.href = `http://twitter.com/share?text=${text}&url=${link}`;
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const linkedinIcons = document.querySelectorAll(
+          ".share-icons .linkedin"
+        );
+
+        linkedinIcons.forEach((icon) => {
+          const articleSlug = icon.getAttribute("data-article-slug");
+          const link = `https://www.gt.adv.br/articles/${articleSlug}`;
+          const title = encodeURIComponent(
+            document.querySelector("title").textContent
+          );
+          const text = "Look what I found";
+
+          icon.href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+            link
+          )}&title=${title}&summary=${text}`;
+        });
+      });
+    </script> -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const shareIcons = document.querySelectorAll(
+          ".share-icons .twitter, .share-icons .linkedin"
+        );
+
+        shareIcons.forEach((icon) => {
+          const articleSlug = icon.getAttribute("data-article-slug");
+          const link = `https://www.gt.adv.br/articles/${articleSlug}`;
+          const title = encodeURIComponent(
+            document.querySelector("title").textContent
+          );
+          const text = "Look what I found";
+
+          if (icon.classList.contains("twitter")) {
+            icon.href = `http://twitter.com/share?text=${text}&url=${link}`;
+          } else if (icon.classList.contains("linkedin")) {
+            icon.href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+              link
+            )}&title=${title}&summary=${text}`;
+          }
+        });
+      });
+    </script>
   </body>
 </html>

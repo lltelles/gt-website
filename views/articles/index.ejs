@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GT Advocacia e Consultoria</title>
-
     <link
       rel="icon"
       type="image/png"
@@ -18,7 +17,29 @@
       crossorigin="anonymous"
     />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script> -->
+
+    <style>
+      body {
+        background-color: #f8f9fa; /* Light gray background */
+      }
+      .container {
+        margin-top: 20px;
+      }
+
+      .container h1 {
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 0.5rem;
+      }
+
+      .card {
+        border: none;
+      }
+
+      .fade-in {
+        animation: fadeIn 2.5s ease-in-out;
+        /* opacity: 0; */
+      }
+    </style>
   </head>
   <body>
     <nav
@@ -100,17 +121,6 @@
               >
             </li>
           </ul>
-          <!-- <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form> -->
         </div>
       </div>
     </nav>
@@ -118,49 +128,40 @@
     <!-- NAVBAR ENDS --------------------------------------------------- -->
 
     <div class="container">
-      <h1 class="mb-4">Blog Articles</h1>
+      <h1 class="mb-4">Publicações</h1>
       <% if (user) { %>
       <a href="/articles/new" class="btn btn-success">New Article</a>
       <% } %> <% articles.forEach(article => { %>
-      <div class="card mt-4">
+      <div class="card mt-4 shadow fade-in">
         <div class="card-body">
           <h4 class="card-title"><%= article.title %></h4>
           <div class="card-subtitle text-muted mb-2">
             <%= article.createdAt.toLocaleDateString() %>
           </div>
           <div class="card-text mb-2"><%= article.description %></div>
-          <a href="/articles/<%=article.slug%>" class="btn btn-primary"
-            >Read More</a
-          >
-          <% if (user) { %>
-          <!-- Only show edit and delete buttons if the user is logged in -->
-          <a href="/articles/edit/<%=article.id%>" class="btn btn-info">Edit</a>
-          <form
-            action="/articles/<%= article.id%>?_method=DELETE"
-            method="POST"
-            class="d-inline"
-          >
-            <!-- <a href="/articles/edit/<%=article.id%>" class="btn btn-info">Edit</a>
-          <form
-            action="/articles/<%= article.id%>?_method=DELETE"
-            method="POST"
-            class="d-inline"
-          > -->
-            <button type="submit" class="btn btn-danger">Delete</button>
-          </form>
-          <% } %>
+          <div class="buttons-container">
+            <div class="read-edit-del-btn">
+              <a href="/articles/<%=article.slug%>" class="btn btn-primary"
+                >Ler mais</a
+              >
+              <% if (user) { %>
+              <!-- Only show edit and delete buttons if the user is logged in -->
+              <a href="/articles/edit/<%=article.id%>" class="btn btn-info"
+                >Edit</a
+              >
+              <form
+                action="/articles/<%= article.id%>?_method=DELETE"
+                method="POST"
+                class="d-inline"
+              >
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+              <% } %>
+            </div>
+          </div>
         </div>
       </div>
       <% }) %>
-      <!-- <div id="lottie-animation">
-        <dotlottie-player
-          src="https://lottie.host/58d5df53-1cf2-4414-ba1a-7126db1f72e2/PFVEiYD62D.json"
-          background="transparent"
-          speed="1"
-          loop
-          autoplay
-        ></dotlottie-player>
-      </div> -->
     </div>
 
     <script
@@ -168,9 +169,5 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
-    <!-- <script
-      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-      type="module"
-    ></script> -->
   </body>
 </html>
