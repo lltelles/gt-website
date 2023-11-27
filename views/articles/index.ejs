@@ -177,12 +177,12 @@
           <div class="card-text mb-2"><%= article.description %></div>
           <div class="buttons-container">
             <div class="read-edit-del-btn">
-              <a href="/articles/<%=article.slug%>" class="btn btn-primary"
+              <a href="/articles/<%=article.slug%>" class="btn btn-secondary"
                 >Ler mais</a
               >
               <% if (user) { %>
               <!-- Only show edit and delete buttons if the user is logged in -->
-              <a href="/articles/edit/<%=article.id%>" class="btn btn-info"
+              <a href="/articles/edit/<%=article.id%>" class="btn btn-primary"
                 >Edit</a
               >
               <form
