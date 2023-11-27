@@ -126,7 +126,7 @@ app.post(
   "/login",
   checkNotAuthenticated,
   passport.authenticate("local", {
-    successRedirect: "/profile",
+    successRedirect: "/articles",
     failureRedirect: "/login",
     failureFlash: true,
   })
