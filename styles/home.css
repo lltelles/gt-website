@@ -117,12 +117,6 @@ body {
   text-align: center;
 }
 
-/* .carbon-banner a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.2rem;
-} */
-
 #building-video {
   position: relative;
   bottom: 4rem;
@@ -143,6 +137,10 @@ body {
 .fade-in {
   animation: fadeIn 2.5s ease-in-out;
   /* opacity: 0; */
+}
+
+.hide {
+  display: none;
 }
 
 @keyframes fadeIn {
