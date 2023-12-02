@@ -33,7 +33,6 @@ mongoose
 
 
 const initalizePassport = require("./passport-config");
-const { resourceUsage } = require("process");
 initalizePassport(
   passport,
   (email) => users.find((user) => user.email === email),
@@ -173,8 +172,13 @@ app.delete("/logout", (req, res) => {
 // }
 
 function checkNotAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return res.redirect("/profile");
+  try {
+    if (req.isAuthenticated()) {
+      return res.redirect("/profile");
+    }
+    next();
+  } catch (error) {
+    console.error("Error checking authentication:", error);
+    // handle the error appropriately, e.g. send an error response or redirect to an error page
   }
-  next();
 }
