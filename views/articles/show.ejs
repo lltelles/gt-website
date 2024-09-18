@@ -146,7 +146,7 @@
     <div class="container">
       <h1 class="mb-1"><%= article.title %></h1>
       <div class="text-muted mb-2">
-        <%= article.createdAt.toLocaleDateString()%>
+        <%= new Date(article.createdAt).toLocaleDateString('pt-BR')%>
       </div>
       <div class="share-icons">
         <a

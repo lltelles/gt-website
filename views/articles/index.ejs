@@ -172,7 +172,7 @@
         <div class="card-body">
           <h4 class="card-title"><%= article.title %></h4>
           <div class="card-subtitle text-muted mb-2">
-            <%= article.createdAt.toLocaleDateString() %>
+            <%= new Date(article.createdAt).toLocaleDateString('pt-BR') %>
           </div>
           <div class="card-text mb-2"><%= article.description %></div>
           <div class="buttons-container">
